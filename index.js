@@ -34,6 +34,9 @@ passport.use(
       console.log(accessToken);
       token = accessToken;
       return done(null, profile);
+    },
+    function (error) {
+      console.log(error);
     }
   )
 );
@@ -63,6 +66,8 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+//passport
 
 app.use(passport.initialize());
 app.use(passport.session());

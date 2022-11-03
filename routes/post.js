@@ -21,4 +21,14 @@ router.post("/", async (req, res) => {
   res.status(201).json({ message: "done" });
 });
 
+router.get("/", async (req, res) => {
+  const posts = await knex("posts")
+    .options({ nestTables: true })
+    .join("users", "posts.user_id", "=", "users.id")
+    .orderBy("created_at", "desc")
+    .select();
+
+  res.status(200).json(posts);
+});
+
 module.exports = router;

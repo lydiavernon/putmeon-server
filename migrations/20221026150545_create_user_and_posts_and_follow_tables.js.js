@@ -6,7 +6,7 @@ exports.up = function (knex) {
   return knex.schema
     .createTable("users", (table) => {
       table.increments("id").primary();
-      table.integer("spotify_user_id").notNullable();
+      table.string("spotify_user_id").notNullable();
       table.string("name").notNullable();
       table.string("avatar_url");
       table.boolean("is_verified").defaultTo(false);
@@ -25,6 +25,7 @@ exports.up = function (knex) {
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
     });
+  // .createTable("follow", (table) => {});
 };
 
 /**

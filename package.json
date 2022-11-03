@@ -8,7 +8,7 @@
     "migrate-down": "knex migrate:down",
     "migrate-refresh": "knex migrate:down && knex migrate:latest",
     "dev": "nodemon index",
-    "start": "nodemon index.js"
+    "start": "node index"
   },
   "keywords": [],
   "author": "",

@@ -41,16 +41,20 @@ router.get("/profile", (req, res) => {
 router.post("/profile/create", (req, res) => {
   // TODO: Refactor to async/await
 
+  console.log("hello?");
+
   knex("users")
     .select("id")
     .where({ spotify_user_id: req.body.spotify_user_id })
     .then((user) => {
       if (user.length) {
+        console.log("user exists...");
         return res.status(200).json({ message: "User already exists" });
       } else {
         knex("users")
           .insert(req.body)
           .then((userId) => {
+            console.log("user created...");
             return res.status(200).json({ message: "User created" });
           })
           .catch((err) => {
