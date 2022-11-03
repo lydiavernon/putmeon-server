@@ -19,6 +19,8 @@ passport.deserializeUser(function (obj, done) {
   done(null, obj);
 });
 
+let token = "";
+
 // Sets up passport to work with spotify
 passport.use(
   new SpotifyStrategy(
@@ -29,6 +31,8 @@ passport.use(
     },
     // What to do once logged in (in this case, not much)
     function (accessToken, refreshToken, expires_in, profile, done) {
+      console.log(accessToken);
+      token = accessToken;
       return done(null, profile);
     }
   )
@@ -66,6 +70,10 @@ app.use(passport.session());
 const authRoutes = require("./routes/auth");
 
 app.use("/auth", authRoutes);
+
+app.get("/token", (req, res) => {
+  res.json({ token: token });
+});
 
 app.listen(PORT, () => {
   console.log(`🚀 Server listening on port ${PORT}.`);

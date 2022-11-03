@@ -25,7 +25,7 @@ router.get(
     failureRedirect: `${process.env.CLIENT_URL}/auth-fail`,
   }),
   function (req, res) {
-    res.redirect(process.env.CLIENT_URL);
+    res.redirect(`${process.env.CLIENT_URL}/`);
   }
 );
 
@@ -69,11 +69,7 @@ router.get("/logout", function (req, res) {
       return next(err);
     }
 
-    // When we have a FE, reidect to the login page
-    // res.redirect(`${process.env.CLIENT_URL}/login`);
-
-    // For now
-    res.redirect("/");
+    res.redirect(`${process.env.CLIENT_URL}/login`);
   });
 });
 
