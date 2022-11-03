@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "migrate": "knex migrate:latest",
+    "migrate-down": "knex migrate:down",
+    "migrate-refresh": "knex migrate:down && knex migrate:latest",
     "dev": "nodemon index",
     "start": "nodemon index.js"
   },

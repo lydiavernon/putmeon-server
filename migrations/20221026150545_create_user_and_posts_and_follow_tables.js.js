@@ -15,11 +15,9 @@ exports.up = function (knex) {
     .createTable("posts", (table) => {
       table.increments("id").primary();
       table.integer("user_id").unsigned().notNullable();
-      table.integer("song_id").notNullable();
-      table.string("song_name").notNullable();
-      table.string("song_url").notNullable();
+      table.string("song_id").notNullable();
       table.text("comment").notNullable();
-      table.timestamp("updated_at").defaultTo(knex.fn.now());
+      table.timestamp("created_at").defaultTo(knex.fn.now());
       table
         .foreign("user_id")
         .references("id")
