@@ -14,6 +14,7 @@ router.get(
       "user-read-email",
       "user-read-private",
       "playlist-modify-private",
+      "streaming",
     ],
     showDialog: true,
   })
