@@ -13,6 +13,7 @@ router.get(
       "user-read-recently-played",
       "user-read-email",
       "user-read-private",
+      "playlist-modify-private",
     ],
     showDialog: true,
   })

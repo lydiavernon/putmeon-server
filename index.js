@@ -74,9 +74,11 @@ app.use(passport.session());
 
 const authRoutes = require("./routes/auth");
 const postRoutes = require("./routes/post");
+const userRoutes = require("./routes/users");
 
 app.use("/auth", authRoutes);
 app.use("/post", postRoutes);
+app.use("/users", userRoutes);
 
 app.get("/token", (req, res) => {
   res.json({ token: token });
