@@ -1,5 +1,4 @@
 module.exports = {
-  // TODO: Put the database credentials in .env
   development: {
     client: "mysql",
     connection: {

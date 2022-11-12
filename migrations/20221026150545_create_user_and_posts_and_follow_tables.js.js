@@ -25,7 +25,6 @@ exports.up = function (knex) {
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
     });
-  // .createTable("follow", (table) => {});
 };
 
 /**

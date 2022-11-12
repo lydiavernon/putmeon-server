@@ -8,13 +8,10 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8888;
 
 // When passport saves the user to the session
-// here's the logic to do at that point (in this case, not much)
 passport.serializeUser(function (user, done) {
   done(null, user);
 });
 
-// When passport gets the user to the session
-// here's the logic to do at that point (in this case, not much)
 passport.deserializeUser(function (obj, done) {
   done(null, obj);
 });
@@ -29,9 +26,8 @@ passport.use(
       clientSecret: process.env.CLIENT_SECRET,
       callbackURL: `${process.env.SERVER_URL}/auth/spotify/callback`,
     },
-    // What to do once logged in (in this case, not much)
+    // What to do once logged in
     function (accessToken, refreshToken, expires_in, profile, done) {
-      console.log(accessToken);
       token = accessToken;
       return done(null, profile);
     },
